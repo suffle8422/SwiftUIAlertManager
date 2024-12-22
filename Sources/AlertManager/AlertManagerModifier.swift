@@ -10,6 +10,10 @@ import SwiftUI
 public struct AlertManagerModifier: ViewModifier {
     @Binding var alertManager: AlertManager
 
+    public init(alertManager: Binding<AlertManager>) {
+        _alertManager = alertManager
+    }
+
     public func body(content: Content) -> some View {
         content
             .alert(
