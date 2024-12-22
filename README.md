@@ -29,7 +29,7 @@ let package = Package(
 ## Usage
 1. 任意のViewもしくはObservableなオブジェクトに、AlertManagerクラスのインスタンスを生成する
 ```Swift
-import SwiftUIAlertManager
+import AlertManager
 
 @MainActor
 @Observable
@@ -40,7 +40,7 @@ final class SampleViewModel {
 
 2. アラートを表示するViewにalertManagerモディファイアをつける
 ```Swift
-import SwiftUIAlertManager
+import AlertManager
 
 struct SampleView: View {
     @State var viewModel = SampleViewModel()
@@ -56,7 +56,7 @@ struct SampleView: View {
 
 3. アラートを表示するタイミングで関数を呼び出す
 ```Swift
-import SwiftUIAlertManager
+import AlertManager
 
 struct SampleView: View {
     @State var viewModel = SampleViewModel()
