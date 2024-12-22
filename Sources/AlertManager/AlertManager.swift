@@ -29,6 +29,7 @@ public final class AlertManager {
         isPresented = true
     }
 
+    /// LocalizedErrorからアラートを表示する
     public func showErrorAlert(error: any LocalizedError) {
         self.title = ""
         self.message = error.localizedDescription
