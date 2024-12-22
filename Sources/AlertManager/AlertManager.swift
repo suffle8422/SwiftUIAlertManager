@@ -16,6 +16,8 @@ public final class AlertManager {
     var message: String = ""
     var buttons: () -> AnyView = { AnyView(EmptyView()) }
 
+    public init() {}
+
     /// タイトル・メッセージ・ボタンを指定してアラートを表示
     public func showAlert(
         title: String = "",
