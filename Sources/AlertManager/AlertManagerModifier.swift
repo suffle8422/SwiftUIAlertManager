@@ -18,7 +18,17 @@ public struct AlertManagerModifier: ViewModifier {
         content
             .alert(
                 alertManager.title,
-                isPresented: $alertManager.isPresented,
+                isPresented: $alertManager.isPresented1,
+                actions: {
+                    alertManager.buttons()
+                },
+                message: {
+                    Text(alertManager.message)
+                }
+            )
+            .alert(
+                alertManager.title,
+                isPresented: $alertManager.isPresented2,
                 actions: {
                     alertManager.buttons()
                 },

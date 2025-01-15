@@ -11,7 +11,10 @@ import Observation
 @MainActor
 @Observable
 public final class AlertManager {
-    public var isPresented = false
+    // アラート内の処理で再度アラートを出すと、表示後にすぐフラグがoffになるためアラートが表示されない
+    // フラグ2つを交互に利用することでこれを防ぐ
+    public var isPresented1 = false
+    public var isPresented2 = false
     var title: String = ""
     var message: String = ""
     var buttons: () -> AnyView = { AnyView(EmptyView()) }
@@ -28,7 +31,11 @@ public final class AlertManager {
         self.message = message
         self.buttons = { AnyView(buttons()) }
 
-        isPresented = true
+        if isPresented1 {
+            isPresented2 = true
+        } else {
+            isPresented1 = true
+        }
     }
 
     /// LocalizedErrorからアラートを表示する
@@ -37,6 +44,10 @@ public final class AlertManager {
         self.message = error.localizedDescription
         self.buttons = { AnyView(EmptyView()) }
 
-        isPresented = true
+        if isPresented1 {
+            isPresented2 = true
+        } else {
+            isPresented1 = true
+        }
     }
 }
